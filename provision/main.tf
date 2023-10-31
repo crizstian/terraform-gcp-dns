@@ -17,7 +17,7 @@ resource "google_dns_record_set" "artifactory" {
   managed_zone = data.google_dns_managed_zone.harness.name
   type         = "CNAME"
   ttl          = 300
-  rrdatas      = ["artifactory.citibanamex.${data.google_dns_managed_zone.harness.dns_name}"]
+  rrdatas      = ["citibanamex.${data.google_dns_managed_zone.harness.dns_name}"]
 }
 
 resource "google_dns_record_set" "sonarqube" {
@@ -25,5 +25,13 @@ resource "google_dns_record_set" "sonarqube" {
   managed_zone = data.google_dns_managed_zone.harness.name
   type         = "CNAME"
   ttl          = 300
-  rrdatas      = ["sonarqube.citibanamex.${data.google_dns_managed_zone.harness.dns_name}"]
+  rrdatas      = ["citibanamex.${data.google_dns_managed_zone.harness.dns_name}"]
+}
+
+resource "google_dns_record_set" "prometheus" {
+  name         = "prometheus.citibanamex.${data.google_dns_managed_zone.harness.dns_name}"
+  managed_zone = data.google_dns_managed_zone.harness.name
+  type         = "CNAME"
+  ttl          = 300
+  rrdatas      = ["citibanamex.${data.google_dns_managed_zone.harness.dns_name}"]
 }
