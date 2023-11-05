@@ -35,3 +35,11 @@ resource "google_dns_record_set" "prometheus" {
   ttl          = 300
   rrdatas      = ["citibanamex.${data.google_dns_managed_zone.harness.dns_name}"]
 }
+
+resource "google_dns_record_set" "prometheus" {
+  name         = "grafana.citibanamex.${data.google_dns_managed_zone.harness.dns_name}"
+  managed_zone = data.google_dns_managed_zone.harness.name
+  type         = "CNAME"
+  ttl          = 300
+  rrdatas      = ["citibanamex.${data.google_dns_managed_zone.harness.dns_name}"]
+}
