@@ -1,8 +1,5 @@
 terraform {
-  backend "gcs" {
-    bucket = "crizstian-terraform"
-    prefix = "cristian-citibanamex-dns"
-  }
+  backend "gcs" {}
 
   required_providers {
     google = {
