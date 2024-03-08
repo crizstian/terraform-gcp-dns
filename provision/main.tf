@@ -39,7 +39,7 @@ resource "google_dns_record_set" "prometheus" {
   rrdatas      = ["selatam.${data.google_dns_managed_zone.harness.dns_name}"]
 }
 
-resource "google_dns_record_set" "prometheus" {
+resource "google_dns_record_set" "grafana" {
   count = 0
   name         = "grafana.selatam.${data.google_dns_managed_zone.harness.dns_name}"
   managed_zone = data.google_dns_managed_zone.harness.name
