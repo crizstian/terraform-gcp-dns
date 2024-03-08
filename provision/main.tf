@@ -3,7 +3,7 @@ data "google_dns_managed_zone" "harness" {
 }
 
 resource "google_dns_record_set" "dns" {
-  name = "citibanamex.${data.google_dns_managed_zone.harness.dns_name}"
+  name = "selatam.${data.google_dns_managed_zone.harness.dns_name}"
   type = "A"
   ttl  = 300
 
@@ -13,33 +13,33 @@ resource "google_dns_record_set" "dns" {
 }
 
 resource "google_dns_record_set" "artifactory" {
-  name         = "artifactory.citibanamex.${data.google_dns_managed_zone.harness.dns_name}"
+  name         = "artifactory.selatam.${data.google_dns_managed_zone.harness.dns_name}"
   managed_zone = data.google_dns_managed_zone.harness.name
   type         = "CNAME"
   ttl          = 300
-  rrdatas      = ["citibanamex.${data.google_dns_managed_zone.harness.dns_name}"]
+  rrdatas      = ["selatam.${data.google_dns_managed_zone.harness.dns_name}"]
 }
 
 resource "google_dns_record_set" "sonarqube" {
-  name         = "sonarqube.citibanamex.${data.google_dns_managed_zone.harness.dns_name}"
+  name         = "sonarqube.selatam.${data.google_dns_managed_zone.harness.dns_name}"
   managed_zone = data.google_dns_managed_zone.harness.name
   type         = "CNAME"
   ttl          = 300
-  rrdatas      = ["citibanamex.${data.google_dns_managed_zone.harness.dns_name}"]
+  rrdatas      = ["selatam.${data.google_dns_managed_zone.harness.dns_name}"]
 }
 
 resource "google_dns_record_set" "prometheus" {
-  name         = "prometheus.citibanamex.${data.google_dns_managed_zone.harness.dns_name}"
+  name         = "prometheus.selatam.${data.google_dns_managed_zone.harness.dns_name}"
   managed_zone = data.google_dns_managed_zone.harness.name
   type         = "CNAME"
   ttl          = 300
-  rrdatas      = ["citibanamex.${data.google_dns_managed_zone.harness.dns_name}"]
+  rrdatas      = ["selatam.${data.google_dns_managed_zone.harness.dns_name}"]
 }
 
 resource "google_dns_record_set" "prometheus" {
-  name         = "grafana.citibanamex.${data.google_dns_managed_zone.harness.dns_name}"
+  name         = "grafana.selatam.${data.google_dns_managed_zone.harness.dns_name}"
   managed_zone = data.google_dns_managed_zone.harness.name
   type         = "CNAME"
   ttl          = 300
-  rrdatas      = ["citibanamex.${data.google_dns_managed_zone.harness.dns_name}"]
+  rrdatas      = ["selatam.${data.google_dns_managed_zone.harness.dns_name}"]
 }
